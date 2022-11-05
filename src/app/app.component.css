@@ -1,0 +1,11 @@
+.content{
+    height: 100%;
+}
+
+.twitter-logo{
+    width: 5em;
+}
+
+.twitter-logo:hover{
+    box-shadow: 2px silver;
+}
