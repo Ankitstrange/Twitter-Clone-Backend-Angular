@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class ="body">
+    <div class="main-contanier">
+        <div class = "container" (click)="inputSelected=false">
+            <div><button class ="cancelButton"><div class="cross">X</div></button></div>
+            <div class="twitter-logo"><img class = "logo" src="../../assets/images/White_logo.png"></div>
+        </div>
+        <div class="login-text" (click)="inputSelected=false">
+            <span>Sign in to Twitter</span>
+        </div>
+        <div class = "container2" *ngIf="!inputSelected">
+            <label class="padding">
+                <div class = "label" (click)="inputSelected=true">
+                    <span class="">Phone, email, or username</span>
+                    <input type="text" class = "input-text" [(ngModel)] = "login"/>
+                </div>
+            </label>
+        </div>
+        <div class = "container2-b" *ngIf="inputSelected">
+            <label class="padding">
+                <div class = "label-b">
+                    <span class="span-b">Phone, email, or username</span>
+                    <input type="text" class = "input-text-b"/>
+                </div>
+            </label>
+        </div>
+        <div class="next-button">
+            <div>
+                <span class="next-text" (click)="next()">Next</span>
+            </div>
+        </div><br/>
+        <div class="success" *ngIf="successLogin">
+            <span>User logged in successfully with credentials {{login}}</span>
+        </div>
+        <div class="error" *ngIf="errorMessage">
+            <span>Login User failed</span>
+        </div>
+    </div>
+</div>
