@@ -68,6 +68,10 @@
     transition-property: -webkit-transform, transform, color, font-size, padding-top;
 }
 
+.span{
+    margin-top: 2%;
+}
+
 .label{
     border: 1px solid #fcfcfc40;
     border-radius: 6px;
@@ -76,6 +80,8 @@
     flex-direction: column;
     padding-left: 2%;
     padding-top: 3%;
+    height: 3.37rem;
+    margin-top: 3.25%;
 }
 
 .login-text{
@@ -83,6 +89,7 @@
     font-size: xx-large;
     margin-left: 15%;
     padding-bottom: 3%;
+    font-weight: 600;
 }
 
 .transition{
@@ -90,7 +97,7 @@
 }
 
 .padding{
-    padding-bottom: 3%;   
+    padding-bottom: 4.5%;   
 }
 
 .label:hover{
@@ -117,6 +124,8 @@
     flex-direction: column;
     padding-left: 2%;
     padding-top: 3%;
+    height: 3.37rem;
+    margin-top: 3.25%;
 }
 
 .input-text-b{
@@ -147,6 +156,7 @@
     text-align: center;
     width: 59%;
     transition-duration: 0.4s;
+    margin-top: 3.25%;
 }
 
 .next-button:hover{
@@ -181,4 +191,24 @@
     margin-left: 15%;
     text-align: center;
     width: 59%;
+}
+
+.signup{
+    margin-left: 15%;
+    margin-top: 3.25%;
+}
+
+.prefix{
+    color: rgb(113, 118, 123);
+    font-size: 17px;
+}
+
+.postfix{
+    color: rgb(29, 155, 240);
+    font-size: 17px;
+}
+
+.postfix:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }

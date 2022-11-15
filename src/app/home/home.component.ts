@@ -10,12 +10,12 @@ export class HomeComponent implements OnInit {
 
   inputSelected!:boolean;
   login!:string;
-  successLogin!:string;
+  successLogin!:any;
   user!:any;
-  errorMessage!:string;
+  errorMessage!:any;
 
   constructor(private homeService:HomeServiceService) {
-    this.login='Ankit@1234';
+   // this.login='Ankit@1234';
    }
 
   ngOnInit(): void {
@@ -29,8 +29,11 @@ export class HomeComponent implements OnInit {
         next:(value)=>{
           this.successLogin="User Logged in Successfully";
           this.user=value[0];
+          this.errorMessage=undefined;
         },
         error:(error)=>{
+          this.successLogin=undefined;
+          this.user=undefined;
           this.errorMessage=error?.message;
         }
       })

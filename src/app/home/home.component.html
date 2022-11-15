@@ -10,8 +10,8 @@
         <div class = "container2" *ngIf="!inputSelected">
             <label class="padding">
                 <div class = "label" (click)="inputSelected=true">
-                    <span class="">Phone, email, or username</span>
-                    <input type="text" class = "input-text" [(ngModel)] = "login"/>
+                    <span class="span">Phone, email, or username</span>
+                    <input type="text" class = "input-text"/>
                 </div>
             </label>
         </div>
@@ -19,20 +19,24 @@
             <label class="padding">
                 <div class = "label-b">
                     <span class="span-b">Phone, email, or username</span>
-                    <input type="text" class = "input-text-b"/>
+                    <input type="text" class = "input-text-b" [(ngModel)]="login"/>
                 </div>
             </label>
         </div>
-        <div class="next-button">
+        <div class="next-button" (click)="next()">
             <div>
-                <span class="next-text" (click)="next()">Next</span>
+                <span class="next-text">Next</span>
             </div>
         </div><br/>
         <div class="success" *ngIf="successLogin">
-            <span>User logged in successfully with credentials {{login}}</span>
+            <span>User logged in successfully with credentials {{user.email}}</span>
         </div>
         <div class="error" *ngIf="errorMessage">
             <span>Login User failed</span>
         </div>
+        <div class="signup">
+            <span class="prefix">Don't have an account? </span><span class="postfix" [routerLink]='["/signup"]'>Sign up</span>
+        </div>
+        <br/><br/>
     </div>
 </div>
