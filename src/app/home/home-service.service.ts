@@ -14,4 +14,8 @@ export class HomeServiceService {
   login(loginInput:string):Observable<any>{
     return this.http.post(this.baseUrl+`users/loginUser`,{"loginInput":loginInput});
   }
+
+  signup(signUpForm:any):Observable<any>{
+    return this.http.post(this.baseUrl+`users/register`,signUpForm);
+  }
 }

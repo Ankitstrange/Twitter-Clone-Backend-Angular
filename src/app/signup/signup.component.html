@@ -4,8 +4,81 @@
             <div><button class ="cancelButton"><div class="cross">X</div></button></div>
             <div class="twitter-logo"><img class = "logo" src="../../assets/images/White_logo.png"></div>
         </div>
-        <div class="signup-text">
+        <div class="signup-text" (click)="selected('')">
             <span>Join Twitter today</span>
+        </div>
+        <div class="signup-form">
+            <form [formGroup] = "SignUpForm">
+                <div class = "container2" *ngIf="!nameSelected">
+                    <label class="padding">
+                        <div class = "label" (click)="selected('name')">
+                            <span class="span" *ngIf="!SignUpForm.controls['name'].value">Name</span>
+                            <div class="span" *ngIf="SignUpForm.controls['name'].value">{{SignUpForm.controls['name'].value}}</div>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2-b" *ngIf="nameSelected">
+                    <label class="padding">
+                        <div class = "label-b">
+                            <span class="span-b">Name</span>
+                            <input type="text" class = "input-text-b" formControlName="name"/>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2" *ngIf="!screenNameSelected">
+                    <label class="padding">
+                        <div class = "label" (click)="selected('screenName')">
+                            <span class="span" *ngIf="!SignUpForm.controls['screenName'].value">Screen Name</span>
+                            <div class="span" *ngIf="SignUpForm.controls['screenName'].value">{{SignUpForm.controls['screenName'].value}}</div>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2-b" *ngIf="screenNameSelected">
+                    <label class="padding">
+                        <div class = "label-b">
+                            <span class="span-b">Screen Name</span>
+                            <input type="text" class = "input-text-b" formControlName="screenName"/>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2" *ngIf="!emailSelected">
+                    <label class="padding">
+                        <div class = "label" (click)="selected('email')">
+                            <span class="span" *ngIf="!SignUpForm.controls['email'].value">Email</span>
+                            <div class="span" *ngIf="SignUpForm.controls['email'].value">{{SignUpForm.controls['email'].value}}</div>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2-b" *ngIf="emailSelected">
+                    <label class="padding">
+                        <div class = "label-b">
+                            <span class="span-b">Email</span>
+                            <input type="email" class = "input-text-b" formControlName="email"/>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2" *ngIf="!passwordSelected">
+                    <label class="padding">
+                        <div class = "label" (click)="selected('password')">
+                            <span class="span" *ngIf="!SignUpForm.controls['password'].value">Password</span>
+                            <div class="span" *ngIf="hiddenPassword">{{hiddenPassword}}</div>
+                        </div>
+                    </label>
+                </div>
+                <div class = "container2-b" *ngIf="passwordSelected">
+                    <label class="padding">
+                        <div class = "label-b">
+                            <span class="span-b">Password</span>
+                            <input type="password" class = "input-text-b" formControlName="password" (keyup)="passwordHid()"/>
+                        </div>
+                    </label>
+                </div>
+            </form>
+            <div class="next-button" (click)="next()">
+                <div>
+                    <span class="next-text">Next</span>
+                </div>
+            </div><br/>
         </div>
     </div>
 </div>

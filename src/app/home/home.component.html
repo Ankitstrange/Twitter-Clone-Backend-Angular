@@ -10,8 +10,8 @@
         <div class = "container2" *ngIf="!inputSelected">
             <label class="padding">
                 <div class = "label" (click)="inputSelected=true">
-                    <span class="span">Phone, email, or username</span>
-                    <input type="text" class = "input-text"/>
+                    <span class="span" *ngIf="!login">Phone, email, or username</span>
+                    <div  class="span" *ngIf="login">{{login}}</div>
                 </div>
             </label>
         </div>
@@ -19,7 +19,7 @@
             <label class="padding">
                 <div class = "label-b">
                     <span class="span-b">Phone, email, or username</span>
-                    <input type="text" class = "input-text-b" [(ngModel)]="login"/>
+                    <input type="text" class = "input-text-b" [(ngModel)]="login" id="login"/>
                 </div>
             </label>
         </div>

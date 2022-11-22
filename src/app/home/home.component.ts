@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { HomeServiceService } from './home-service.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HomeServiceService } from './home-service.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck{
 
   inputSelected!:boolean;
   login!:string;
@@ -19,6 +19,13 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck(): void {
+    if(this.inputSelected){
+      console.log("Entered");
+      document.getElementById("login")?.focus();
+    }
   }
 
   next(){
