@@ -4,14 +4,14 @@
             <div><button class ="cancelButton"><div class="cross">X</div></button></div>
             <div class="twitter-logo"><img class = "logo" src="../../assets/images/White_logo.png"></div>
         </div>
-        <div class="signup-text" (click)="selected('')">
+        <div class="signup-text" (click)="nameSelected=false; screenNameSelected=false; emailSelected=false; passwordSelected=false">
             <span>Join Twitter today</span>
         </div>
         <div class="signup-form">
             <form [formGroup] = "SignUpForm">
                 <div class = "container2" *ngIf="!nameSelected">
                     <label class="padding">
-                        <div class = "label" (click)="selected('name')">
+                        <div class = "label" (click)="nameSelected=true; screenNameSelected=false; emailSelected=false; passwordSelected=false">
                             <span class="span" *ngIf="!SignUpForm.controls['name'].value">Name</span>
                             <div class="span" *ngIf="SignUpForm.controls['name'].value">{{SignUpForm.controls['name'].value}}</div>
                         </div>
@@ -21,13 +21,13 @@
                     <label class="padding">
                         <div class = "label-b">
                             <span class="span-b">Name</span>
-                            <input type="text" class = "input-text-b" formControlName="name"/>
+                            <input type="text" class = "input-text-b" formControlName="name" id="nameId"/>
                         </div>
                     </label>
                 </div>
                 <div class = "container2" *ngIf="!screenNameSelected">
                     <label class="padding">
-                        <div class = "label" (click)="selected('screenName')">
+                        <div class = "label" (click)="nameSelected=false; screenNameSelected=true; emailSelected=false; passwordSelected=false">
                             <span class="span" *ngIf="!SignUpForm.controls['screenName'].value">Screen Name</span>
                             <div class="span" *ngIf="SignUpForm.controls['screenName'].value">{{SignUpForm.controls['screenName'].value}}</div>
                         </div>
@@ -37,13 +37,13 @@
                     <label class="padding">
                         <div class = "label-b">
                             <span class="span-b">Screen Name</span>
-                            <input type="text" class = "input-text-b" formControlName="screenName"/>
+                            <input type="text" class = "input-text-b" formControlName="screenName" id="screenNameId"/>
                         </div>
                     </label>
                 </div>
                 <div class = "container2" *ngIf="!emailSelected">
                     <label class="padding">
-                        <div class = "label" (click)="selected('email')">
+                        <div class = "label" (click)="nameSelected=false; screenNameSelected=false; emailSelected=true; passwordSelected=false">
                             <span class="span" *ngIf="!SignUpForm.controls['email'].value">Email</span>
                             <div class="span" *ngIf="SignUpForm.controls['email'].value">{{SignUpForm.controls['email'].value}}</div>
                         </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class = "container2" *ngIf="!passwordSelected">
                     <label class="padding">
-                        <div class = "label" (click)="selected('password')">
+                        <div class = "label" (click)="nameSelected=false; screenNameSelected=false; emailSelected=false; passwordSelected=true">
                             <span class="span" *ngIf="!SignUpForm.controls['password'].value">Password</span>
                             <div class="span" *ngIf="hiddenPassword">{{hiddenPassword}}</div>
                         </div>
