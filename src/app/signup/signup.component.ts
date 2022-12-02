@@ -10,19 +10,15 @@ import { HomeServiceService } from '../home/home-service.service';
 export class SignupComponent implements OnInit{
 
   SignUpForm!:FormGroup;
-  nameSelected!:boolean;
-  screenNameSelected!:boolean;
-  emailSelected!:boolean;
-  passwordSelected!:boolean;
   signUpUser!:any;
   successSignUp!:any;
   errorMessage!:any;
-  hiddenPassword!:any;
+  hide!:boolean;
 
   constructor(private fb:FormBuilder, private homeService:HomeServiceService) { }
 
   ngOnInit(): void {
-    this.nameSelected=true;
+    this.hide=true;
     this.SignUpForm = this.fb.group({
       name:['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(/^[A-Za-z ]+[A-Za-z]+$/)]],
       screenName:['',[Validators.required, Validators.minLength(4), Validators.maxLength(50), Validators.pattern(/^[A-Za-z0-9,'_\-+=@!$%^&*]+$/)]],
@@ -49,12 +45,5 @@ export class SignupComponent implements OnInit{
         this.errorMessage=error?.message;
       }
     });
-  }
-
-  passwordHid(){
-    this.hiddenPassword =""
-    for(let i = 0;i<String(this.SignUpForm.controls['password'].value).length;i++){
-      this.hiddenPassword+=".";
-    }
   }
 }

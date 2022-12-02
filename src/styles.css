@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 nav{
     background-color:rgb(144, 246, 234);
     border-top-left-radius: 3px;
@@ -42,6 +42,7 @@ body{
 #page-container {
     position: relative;
     min-height: 100vh;
+    background-color: rgba(91, 112, 131, 0.4);
   }
   
 #content-wrap {
